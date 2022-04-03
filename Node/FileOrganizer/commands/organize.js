@@ -14,9 +14,11 @@ function organize(srcPath){
         srcPath=process.cwd();
         //console.log(srcPath);
     }
-    let OrganizedFiles = path.join(srcPath , "organized_files");
-    if(!fs.existsSync(OrganizedFiles)){
-        fs.mkdirSync(OrganizedFiles);
+    let organizedFiles = path.join(srcPath, "organized_files");
+    
+    console.log("organized files folder path is " , organizedFiles);
+    if(fs.existsSync(organizedFiles)==false){
+        fs.mkdirSync(organizedFiles);
     }else console.log("Folder Exists");
 
     let allFiles = fs.readdirSync(srcPath);
@@ -25,11 +27,11 @@ function organize(srcPath){
     for(let i=0 ; i<allFiles.length ; i++){
         // let fileName = allFiles[i].split(".")[1];
         // check if it is file or a folder
-        let fullPathOfFile = path.join(srcPath,allFiles[i])
+        let fullPathOfFile = path.join(srcPath , allFiles[i])
         // 1.1 get extn name
         let isFile = fs.lstatSync(fullPathOfFile).isFile();
         if(isFile){
-            let ext = path.extname(allFiles[i]);
+            let ext = path.extname(allFiles[i]).split(".")[1];
             let folderName  = getFolderName(ext);
                     // 1.2 get folder name from extension
                    // 1.3 copy from source(srcPath) and paste in destination
@@ -39,3 +41,31 @@ function organize(srcPath){
     }
 }
 
+function getFolderName(ext){
+    
+    for(let key in types){
+        for(let i=0 ; i<types[key].length ; i++){
+            if(types[key][i]==ext){
+                return key;
+            }
+        }
+    }
+    return "micellaneuos";
+}
+
+function copyFileToDest(srcPath , fullPathOfFile , folderName){
+    let destFolderPath = path.join(srcPath, "organized_files" , folderName);
+    if(!fs.existsSync(destFolderPath)){
+        fs.mkdirSync(destFolderPath);
+    }
+    let fileName = path.basename(fullPathOfFile);
+    let destFileName=path.join(destFolderPath , fileName);
+    fs.copyFileSync(fullPathOfFile , destFileName);
+}
+
+// let srcPath = "C:/Users/Asus/Desktop/Web Dev/Node/FileOrganizer/downloads";
+// organize(srcPath); 
+
+module.exports={
+    organize:organize
+}

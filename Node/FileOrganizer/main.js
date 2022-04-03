@@ -1,5 +1,6 @@
 let inputArr = process.argv.slice(2);
 let helpFunc = require("./commands/help");
+let organizeFunc = require("./commands/organize");
 let command = inputArr[0];
 let path = inputArr[1];     
 switch (command){
@@ -8,8 +9,7 @@ switch (command){
         console.log("This is tree function called and executed");
         break;
     case "organize":
-        //call organize function
-        console.log("This is organize function called and executed");
+        organizeFunc.organize(path);
         break; 
     case "help" :
         //call help function
