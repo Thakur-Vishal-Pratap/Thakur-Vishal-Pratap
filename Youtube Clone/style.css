@@ -1,0 +1,58 @@
+.header{
+    background-color: aqua;
+}
+.tags{
+    background-color: blue;
+}
+/* .sideBar{
+    background-color: brown;
+} */
+.page{
+    background-color: plum;
+}
+
+.sideBar{
+    width: 15vw;
+    height: 50vh;
+}
+
+body{
+    display: flex;
+    justify-content: left;
+}
+
+img[src="Image/logoYouTube.jpg"]{
+    height: 3vh;
+    width: 6vw;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+img[src="Image/three_line.jpg"]{
+    height: 3vh;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.home{
+    display: flex;
+    margin-top: 2.5vh;
+}
+
+.imageIcons{
+    height: 30px;
+    margin-top: 11px;
+    margin-left: 15px;
+    /* margin-right: 1.75vw; */
+}
+
+.left{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 370;
+}
+
+.text{
+    margin-left: 1.65vw;
+    /* background-color: black; */
+}

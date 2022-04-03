@@ -1,0 +1,64 @@
+
+.left{
+    display: inline-block;
+    border: 2px solid red;
+}
+
+.mid{
+    border: 2px solid green;
+}
+
+.right{
+    display: inline-block;
+    border: 2px solid yellow;
+}
+
+header{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 2vw;
+}
+
+.navbar{
+    display: flex;
+    justify-content:space-around;
+    list-style: none;
+    /* padding: 5vw; */
+}
+
+.navbar li{
+    padding-left: 3vw;
+    padding-right: 3vw;
+    font-size: 2vh;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover , .navbar a:active{
+    color: grey;
+    text-decoration: underline;
+}
+
+.left>img{
+    width: 10vw;
+    height: 10vh;
+    filter: invert();
+}
+
+.left div{
+    text-align: center;
+}
+
+.right{
+    display: flex;
+}
+
+.right div{
+    margin-right: 1vw;
+    padding-top: 1vw;
+    cursor: pointer;
+    
+}
